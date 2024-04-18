@@ -1,0 +1,30 @@
+<h2>Employee Database</h2>
+<div class="container">
+  <!-- Search Box -->
+  <div class="search-box">
+  </div>
+
+  <!-- Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Employee_ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Salary</th>
+        <th>Job Title</th>
+        <th>Date of Joining</th>
+        <th>Date of Birth</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of filteredMovies">
+        <td>{{ movie.name }}</td>
+        <td>{{ movie.year }}</td>
+        <td>{{ movie.genere.join(', ') }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
