@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-export interface employee{
-  employeeId: number;
+export interface Employee {
+  employee_id: number;
   name: string;
   email: string;
-  phone: number;
-  Job_Title: string;
-  doj: string;
-  dob: string;
+  phoneNo: string;
+  salary: number;
+  jobTitle: string;
+  dateOfJoining: Date;
+  dateOfBirth: Date;
   address: string;
 }
 
@@ -17,6 +18,12 @@ export interface employee{
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
 })
+
 export class EmployeeComponent {
 
+  searchit:string = ''
+
+  employees: Employee[] = [
+
+  ]
 }
