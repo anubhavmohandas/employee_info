@@ -1,6 +1,7 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 export interface Employee {
   employee_id: number;
   name: string;
@@ -254,7 +255,6 @@ export class EmployeeComponent {
   searchDetails: string = '';
 
   constructor() {
-    // Extract unique job titles from the employees list
     this.employees.forEach(employee => {
       if (!this.jobTitles.includes(employee.jobTitle)) {
         this.jobTitles.push(employee.jobTitle);
@@ -266,11 +266,11 @@ export class EmployeeComponent {
   get filteredEmployees(): Employee[] {
     let filteredList = this.employees;
 
-    if (this.selectedJobTitle) {
-      filteredList = filteredList.filter(employee => 
-        employee.jobTitle.toLowerCase().includes(this.selectedJobTitle.toLowerCase())
-      );
-    }
+    // if (this.selectedJobTitle) {
+    //   filteredList = filteredList.filter(employee => 
+    //     employee.jobTitle.toLowerCase().includes(this.selectedJobTitle.toLowerCase())
+    //   );
+    // }
 
     if (this.searchDetails) {
       const searchText = this.searchDetails.toLowerCase();
