@@ -3,34 +3,38 @@
   <!-- Search Box -->
   <div class="search-box">
     <label for="search">Search:</label>
-    <input type="text" id="search" placeholder="Search by Name, ID, Job Title" [(ngModel)]="searchdetails">
+    <input type="text" id="search" placeholder="Search by Name, ID, Job Title" [(ngModel)]="searchDetails">
+    <select [(ngModel)]="selectedJobTitle">
+      <option value="">All Job Titles</option>
+      <option *ngFor="let jobTitle of jobTitles" [value]="jobTitle">{{ jobTitle }}</option>
+    </select>
   </div>
 
   <!-- Employee Table -->
   <table>
     <thead>
-        <tr>
-            <th (click)="sort('employee_id')">Employee ID</th>
-            <th (click)="sort('name')">Name</th>
-            <th (click)="sort('email')">Email</th>
-            <th (click)="sort('phoneNo')">Phone No</th>
-            <th (click)="sort('salary')">Salary</th>
-            <th (click)="sort('jobTitle')">Job Title</th>
-            <th (click)="sort('dateOfJoining')">Date of Joining</th>
-            <th (click)="sort('dateOfBirth')">Date of Birth</th>
-            <th (click)="sort('address')">Address</th>
-          </tr>
+      <tr>
+        <th (click)="sort('employee_id')">Employee ID</th>
+        <th (click)="sort('name')">Name</th>
+        <th (click)="sort('email')">Email</th>
+        <th (click)="sort('phoneNo')">Phone No</th>
+        <th (click)="sort('salary')">Salary</th>
+        <th (click)="sort('jobTitle')">Job Title</th>
+        <th (click)="sort('dateOfJoining')">Date of Joining</th>
+        <th (click)="sort('dateOfBirth')">Date of Birth</th>
+        <th (click)="sort('address')">Address</th>
+      </tr>
     </thead>
     <tbody>
       <tr *ngFor="let employee of filteredEmployees">
-        <td>{{ employee.id }}</td>
+        <td>{{ employee.employee_id }}</td>
         <td>{{ employee.name }}</td>
         <td>{{ employee.email }}</td>
         <td>{{ employee.phoneNo }}</td>
         <td>{{ employee.salary }}</td>
         <td>{{ employee.jobTitle }}</td>
-        <td>{{ employee.dateOfJoining | date }}</td>
-        <td>{{ employee.dateOfBirth | date }}</td>
+        <td>{{ employee.dateOfJoining | date:'mediumDate' }}</td>
+        <td>{{ employee.dateOfBirth | date:'mediumDate' }}</td>
         <td>{{ employee.address }}</td>
       </tr>
     </tbody>
